@@ -69,11 +69,11 @@ namespace Librarium
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             int id = int.Parse(search_txt.Text);
-            var selectBook = from b in db.books
+            var selectedBook = from b in db.books
                              where b.bookId == id
                              select b;
 
-            books obj = selectBook.SingleOrDefault();
+            books obj = selectedBook.SingleOrDefault();
 
             if(obj!= null) {
                 obj.title = title_txt.Text;
@@ -90,11 +90,11 @@ namespace Librarium
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             int id = int.Parse(search_txt.Text);
-            var selectBook = from b in db.books
+            var selectedBook = from b in db.books
                              where b.bookId == id
                              select b;
 
-            books obj = selectBook.SingleOrDefault();
+            books obj = selectedBook.SingleOrDefault();
             if(obj != null)
             {
                 db.books.Remove(obj);

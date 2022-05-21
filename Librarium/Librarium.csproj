@@ -91,6 +91,9 @@
     <Compile Include="fines.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fines.xaml.cs">
+      <DependentUpon>Fines.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LibraryManagement.xaml.cs">
       <DependentUpon>LibraryManagement.xaml</DependentUpon>
     </Compile>
@@ -102,13 +105,23 @@
     <Compile Include="readers.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Readers.xaml.cs">
+      <DependentUpon>Readers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="rentals.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rentals.xaml.cs">
+      <DependentUpon>Rentals.xaml</DependentUpon>
     </Compile>
     <Compile Include="users.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Page Include="Books.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fines.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +151,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Readers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rentals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -1,0 +1,41 @@
+﻿<Window x:Class="Librarium.Fines"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Librarium"
+        mc:Ignorable="d"
+        Title="Fines" Height="700" Width="800">
+    <Grid Background="#FF2F2F31">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="readersGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,85,10,322" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DataGrid x:Name="finesGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,85,10,322" Grid.Column="1" SelectionChanged="DataGrid_SelectionChanged_1"/>
+        <Button Content="Powrót do menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Width="209" Margin="10,10,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Powrot_Click"/>
+        <Label Content="Wybierz czytelnika" Margin="10,53,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <Label Content="Lista kar" Margin="10,53,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="title_txt" Text="" TextWrapping="Wrap" Margin="10,394,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <Label Content="Identyfikator czytelnika" Margin="10,362,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <TextBox x:Name="title_txt_Copy" Text="" TextWrapping="Wrap" Margin="10,475,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <Label Content="Imię czytelnika" Margin="10,443,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <TextBox x:Name="title_txt_Copy1" Text="" TextWrapping="Wrap" Margin="10,556,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <Label Content="Nazwisko czytelnika" Margin="10,524,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <TextBox x:Name="title_txt_Copy2" Text="" TextWrapping="Wrap" Margin="10,399,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Column="1"/>
+        <Label Content="Identyfikator kary" Margin="10,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Typ Kary" Margin="10,448,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Column="1"/>
+        
+        <ComboBox Grid.Column="1" Margin="10,480,223,155" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBoxItem Content="Zniszczenie"></ComboBoxItem>
+                        <ComboBoxItem>Uszkodzenie</ComboBoxItem>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+    </Grid>
+</Window>

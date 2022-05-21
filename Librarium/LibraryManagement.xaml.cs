@@ -33,17 +33,21 @@ namespace Librarium
 
         private void Readers_Click(object sender, RoutedEventArgs e)
         {
-
+            Readers r = new Readers();
+            Close();
+            r.Show();
         }
 
         private void Rentals_Click(object sender, RoutedEventArgs e)
         {
-
+            Rentals r = new Rentals();
+            r.Show();
         }
 
         private void Fines_Click(object sender, RoutedEventArgs e)
         {
-
+            Fines f = new Fines();
+            f.Show();
         }
     }
 }

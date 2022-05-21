@@ -20,7 +20,7 @@ namespace Librarium
     /// </summary>
     public partial class MainWindow : Window
     {
-        LibraryDBEntities db = new LibraryDBEntities();
+        public LibraryDBEntities db = new LibraryDBEntities();
         public MainWindow()
         {
             InitializeComponent();          
