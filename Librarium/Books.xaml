@@ -1,0 +1,36 @@
+﻿<Window x:Class="Librarium.Books"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Librarium"
+        mc:Ignorable="d"
+        Title="Books" Height="570" Width="1200">
+    <Grid Background="#FF2F2F31" Margin="0,0,0,-16">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="800"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="title_txt" Text="" TextWrapping="Wrap" Margin="44,115,55,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <DataGrid x:Name="datagrid" Grid.Column="1" Margin="26,10,26,0" SelectionChanged="datagrid_SelectionChanged" VerticalAlignment="Top" Height="349"/>
+        <TextBox x:Name="no_of_pages_txt" Text="" TextWrapping="Wrap" Margin="44,277,55,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <TextBox x:Name="author_txt" Text="" TextWrapping="Wrap" Margin="44,196,55,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <TextBox x:Name="year_of_publication_txt" Text="" TextWrapping="Wrap" Margin="44,359,55,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1"/>
+        <Label Content="Tytuł" Margin="44,83,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <Label Content="Autor" Margin="44,164,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <Label Content="Liczba stron" Margin="44,245,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <Label Content="Rok wydania" Margin="44,327,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" Margin="44,424,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Add_Click"/>
+        <Label Content="ID książki" Margin="26,363,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Column="1" Width="94"/>
+        <TextBox x:Name="search_txt" Text="" TextWrapping="Wrap" Margin="26,400,299,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Column="1" />
+        <Button Content="Edytuj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="188" Margin="26,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="Update_Click"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="187" Margin="250,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="Delete_Click"/>
+        <Button Content="Powrót do menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="161" Margin="44,20,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Powrot_Click"/>
+        <Button Content="Wyczyść" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="187" Margin="475,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="ClearBtn_Click"/>
+    </Grid>
+</Window>

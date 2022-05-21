@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Librarium", "Librarium\Librarium.csproj", "{84040EA0-F2EF-4D4E-9AF0-EAAB06302D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrariumUnitTests", "LibrariumUnitTests\LibrariumUnitTests.csproj", "{95B8FCFF-A7D6-4E02-998B-7203027FF0CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84040EA0-F2EF-4D4E-9AF0-EAAB06302D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84040EA0-F2EF-4D4E-9AF0-EAAB06302D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84040EA0-F2EF-4D4E-9AF0-EAAB06302D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84040EA0-F2EF-4D4E-9AF0-EAAB06302D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B8FCFF-A7D6-4E02-998B-7203027FF0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B8FCFF-A7D6-4E02-998B-7203027FF0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B8FCFF-A7D6-4E02-998B-7203027FF0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B8FCFF-A7D6-4E02-998B-7203027FF0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D69887A-5BB9-42A7-9C23-7334D1BECA60}
+	EndGlobalSection
+EndGlobal
