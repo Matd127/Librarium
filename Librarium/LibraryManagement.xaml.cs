@@ -47,6 +47,7 @@ namespace Librarium
         private void Fines_Click(object sender, RoutedEventArgs e)
         {
             Fines f = new Fines();
+            Close();
             f.Show();
         }
     }
