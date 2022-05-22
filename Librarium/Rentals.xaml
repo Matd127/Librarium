@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Librarium"
         mc:Ignorable="d"
-        Title="Rentals" Height="450" Width="800">
-    <Grid>
-        
+        Title="Rentals" Height="700" Width="1200">
+    <Grid Background="#FF2F2F31" RenderTransformOrigin="0.498,0.447">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="207*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="ReadersGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,38,10,10" SelectionChanged="ReadersGrid_SelectionChanged"/>
+        <DataGrid x:Name="ActualBooksGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,38,10,10" Grid.Column="1" SelectionChanged="ActualBooksGrid_SelectionChanged"/>
+        <DataGrid x:Name="RentalsGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,38,10,10" Grid.Column="2" SelectionChanged="RentalsGrid_SelectionChanged"/>
+        <Button Content="Powrót do menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="135" Margin="10,5,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Powrot_Click"/>
+        <TextBox IsReadOnly="True" x:Name="readerId_txt" Text="" TextWrapping="Wrap" Margin="10,42,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1"/>
+        <Label Content="Identyfikator czytelnika" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Height="32" Width="185"/>
+        <TextBox IsReadOnly="True" x:Name="bookId_txt" Text="" TextWrapping="Wrap" Margin="15,47,84,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Identyfikator książki" Margin="15,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Height="32" Width="160"/>
+        <TextBox IsReadOnly="True" x:Name="rentalId_txt" Text="" TextWrapping="Wrap" Margin="15,42,84,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Identyfikator wypożyczenia" Margin="15,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Grid.Column="2"/>
+        <TextBox x:Name="dateOfRent_txt" Text="" TextWrapping="Wrap" Margin="15,123,84,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Data wypożyczenia&#xD;&#xA;" Margin="15,91,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Height="32"/>
+        <TextBox x:Name="dateOfReturn_txt" Text="" TextWrapping="Wrap" Margin="15,204,84,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Data zwrotu" Margin="15,172,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Height="32"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" Margin="15,267,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Add_Click" Grid.Column="2" Grid.Row="1"/>
+        <Button Content="Aktualizuj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" Margin="15,319,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="2" Click="Update_Click" Grid.Row="1"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" Margin="15,371,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="2" Click="Delete_Click" Grid.Row="1"/>
+        <Button Content="Wyczyść" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="187" Margin="10,371,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="ClearBtn_Click" Grid.Row="1"/>
+        <TextBox IsReadOnly="True" x:Name="readerName_txt" Text="" TextWrapping="Wrap" Margin="10,123,89,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1"/>
+        <Label Content="Imie czytelnika" Margin="10,91,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Height="32" Width="185"/>
+        <TextBox IsReadOnly="True" x:Name="readerSurname_txt" Text="" TextWrapping="Wrap" Margin="11,205,88,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1"/>
+        <Label Content="Identyfikator czytelnika" Margin="11,173,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Height="32" Width="185"/>
+        <TextBox IsReadOnly="True" x:Name="bookTitle_txt" Text="" TextWrapping="Wrap" Margin="15,128,84,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Tytuł książki" Margin="15,96,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Row="1" Height="32" Width="185" Grid.Column="1"/>
     </Grid>
 </Window>

@@ -41,6 +41,7 @@ namespace Librarium
         private void Rentals_Click(object sender, RoutedEventArgs e)
         {
             Rentals r = new Rentals();
+            Close();
             r.Show();
         }
 
