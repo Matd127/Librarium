@@ -59,7 +59,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -82,13 +84,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="books.cs">
+    <Compile Include="Models\books.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Books.xaml.cs">
       <DependentUpon>Books.xaml</DependentUpon>
     </Compile>
-    <Compile Include="fines.cs">
+    <Compile Include="Models\fines.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Fines.xaml.cs">
@@ -97,24 +99,24 @@
     <Compile Include="LibraryManagement.xaml.cs">
       <DependentUpon>LibraryManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LibraryModels.cs">
+    <Compile Include="Models\LibraryModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="readers.cs">
+    <Compile Include="Models\readers.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Readers.xaml.cs">
       <DependentUpon>Readers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="rentals.cs">
+    <Compile Include="Models\rentals.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Rentals.xaml.cs">
       <DependentUpon>Rentals.xaml</DependentUpon>
     </Compile>
-    <Compile Include="users.cs">
+    <Compile Include="Models\users.cs">
       <DependentUpon>LibraryModels.tt</DependentUpon>
     </Compile>
     <Page Include="Books.xaml">
@@ -137,12 +139,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LibraryModels.Context.cs">
+    <Compile Include="Models\LibraryModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LibraryModels.Designer.cs">
+    <Compile Include="Models\LibraryModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryModels.edmx</DependentUpon>
@@ -178,11 +180,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="LibraryModels.edmx">
+    <EntityDeploy Include="Models\LibraryModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibraryModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="LibraryModels.edmx.diagram">
+    <None Include="Models\LibraryModels.edmx.diagram">
       <DependentUpon>LibraryModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -204,12 +206,12 @@
     <Content Include="Library.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LibraryModels.Context.tt">
+    <Content Include="Models\LibraryModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryModels.edmx</DependentUpon>
       <LastGenOutput>LibraryModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="LibraryModels.tt">
+    <Content Include="Models\LibraryModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryModels.edmx</DependentUpon>
       <LastGenOutput>LibraryModels.cs</LastGenOutput>

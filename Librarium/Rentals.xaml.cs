@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Librarium.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,7 +77,7 @@ namespace Librarium
             bookTitle_txt.Clear();
         }
 
-        private void Powrot_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             LibraryManagement m = new LibraryManagement();
             Close();
@@ -92,14 +93,27 @@ namespace Librarium
                 date_of_rent = DateTime.Parse(dateOfRent_txt.Text),
                 date_of_return = DateTime.Parse(dateOfReturn_txt.Text)
             };
-            db.rentals.Add(rentalObject);
-            db.SaveChanges();
-            LoadRentalsGrid();
-            MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+            //Wyszukać readerId w fines i sprawdzić czy ma karę//
+            var CheckFine = (from f in db.fines
+                             where f.readerId == rentalObject.readerId 
+                             && f.isPaid_ == false
+                             select f).Count();
+            
+            if(CheckFine > 0)
+                MessageBox.Show("Nie można wypożyczyć książki. Czytelnik posiada nieopłaconą karę.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+            {
+                db.rentals.Add(rentalObject);
+                db.SaveChanges();
+                LoadRentalsGrid();
+                MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
+         
+
             int id = int.Parse(rentalId_txt.Text);
             var selectReader = from r in db.rentals
                                where r.rentalId == id

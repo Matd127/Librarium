@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Librarium.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace Librarium
             LoadGrid();
         }
 
-        private void Powrot_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             LibraryManagement m = new LibraryManagement();
             Close();
@@ -56,22 +57,31 @@ namespace Librarium
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            readers readerObject = new readers
+            try
             {
-                name = name_txt.Text,
-                surname = surname_txt.Text,
-                street = street_txt.Text,
-                house_no = houseNo_txt.Text,
-                postal_code = postal_code_txt.Text,
-                city = city_txt.Text,
-                voivodeship = voivodeship_txt.Text,
-                phone_number = phone_number_txt.Text,
-                email = email_txt.Text
-            };
-            db.readers.Add(readerObject);
-            db.SaveChanges();
-            LoadGrid();
-            MessageBox.Show("Pomyślnie dodano nowego czytelnika!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+                readers readerObject = new readers()
+                {
+                    name = name_txt.Text,
+                    surname = surname_txt.Text,
+                    street = street_txt.Text,
+                    house_no = houseNo_txt.Text,
+                    postal_code = postal_code_txt.Text,
+                    city = city_txt.Text,
+                    voivodeship = voivodeship_txt.Text,
+                    phone_number = phone_number_txt.Text,
+                    email = email_txt.Text
+                };
+
+                db.readers.Add(readerObject);
+                db.SaveChanges();
+                LoadGrid();
+                MessageBox.Show("Pomyślnie dodano nowego czytelnika!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Dane są nieprawidłowe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)

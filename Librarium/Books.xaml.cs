@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Librarium.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace Librarium
             search_txt.Clear();
         }
 
-        private void Powrot_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             LibraryManagement m = new LibraryManagement();
             Close();
@@ -53,17 +54,24 @@ namespace Librarium
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            books bookObject = new books()
+            try
             {
-                title = title_txt.Text,
-                author = author_txt.Text,
-                no_of_pages = short.Parse(no_of_pages_txt.Text),
-                year_of_publication = short.Parse(year_of_publication_txt.Text)
-            };
-            db.books.Add(bookObject);
-            db.SaveChanges();
-            LoadGrid();
-            MessageBox.Show("Pomyślnie dodano nową książkę!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+                books bookObject = new books()
+                {
+                    title = title_txt.Text,
+                    author = author_txt.Text,
+                    no_of_pages = short.Parse(no_of_pages_txt.Text),
+                    year_of_publication = short.Parse(year_of_publication_txt.Text)
+                };
+                db.books.Add(bookObject);
+                db.SaveChanges();
+                LoadGrid();
+                MessageBox.Show("Pomyślnie dodano nową książkę!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Dane są nieprawidłowe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
