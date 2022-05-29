@@ -29,7 +29,7 @@
         </TextBox>
         <PasswordBox x:Name="Password" Margin="97,146,101,0" Grid.Row="1" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242">
         </PasswordBox>
-        <Button x:Name="Login_btn" Content="Zaloguj sie&#xD;&#xA;" Margin="150,247,150,0" Grid.Row="1" FontFamily="Calibri" FontSize="24" Foreground="#FFF2F8F4" Background="#FF22A86D" VerticalAlignment="Top" Width="200" Height="39" BorderBrush="#FF22A86D" Click="Login_btn_Click"/>
+        <Button x:Name="Login_btn" Content="Zaloguj sie&#xD;&#xA;" Margin="0,249,0,0" Grid.Row="1" FontFamily="Calibri" FontSize="24" Foreground="#FFF2F8F4" Background="#FF22A86D" VerticalAlignment="Top" Width="200" Height="39" BorderBrush="#FF22A86D" Click="Login_btn_Click" HorizontalAlignment="Center"/>
         <Label Content="Login" Margin="97,34,0,0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
         <Label Content="Haslo" Margin="97,114,0,0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold"/>
     </Grid>

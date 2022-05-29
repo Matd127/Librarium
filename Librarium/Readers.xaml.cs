@@ -71,7 +71,6 @@ namespace Librarium
                     phone_number = phone_number_txt.Text,
                     email = email_txt.Text
                 };
-
                 db.readers.Add(readerObject);
                 db.SaveChanges();
                 LoadGrid();
@@ -143,10 +142,10 @@ namespace Librarium
                 street_txt.Text = r.street.ToString();
                 houseNo_txt.Text = r.house_no.ToString();
                 postal_code_txt.Text = r.postal_code.ToString();
-                city_txt.Text = r.name.ToString();
-                voivodeship_txt.Text = r.name.ToString();
-                phone_number_txt.Text = r.name.ToString();
-                email_txt.Text = r.name.ToString();
+                city_txt.Text = r.city.ToString();
+                voivodeship_txt.Text = r.voivodeship.ToString();
+                phone_number_txt.Text = r.phone_number.ToString();
+                email_txt.Text = r.email.ToString();
                 search_txt.Text = r.readerId.ToString();
             }
         }

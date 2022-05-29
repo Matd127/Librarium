@@ -93,7 +93,6 @@ namespace Librarium
                 date_of_rent = DateTime.Parse(dateOfRent_txt.Text),
                 date_of_return = DateTime.Parse(dateOfReturn_txt.Text)
             };
-            //Wyszukać readerId w fines i sprawdzić czy ma karę//
             var CheckFine = (from f in db.fines
                              where f.readerId == rentalObject.readerId 
                              && f.isPaid_ == false
