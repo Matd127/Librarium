@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Librarium"
         mc:Ignorable="d"
         Title="LoginPanel" Height="450" Width="500">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

@@ -1,6 +1,7 @@
 ﻿using Librarium.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,13 +53,11 @@ namespace Librarium
             voivodeship_txt.Clear();
             phone_number_txt.Clear();
             email_txt.Clear();
-
         }
-
+        
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            try { 
                 readers readerObject = new readers()
                 {
                     name = name_txt.Text,
@@ -71,10 +70,16 @@ namespace Librarium
                     phone_number = phone_number_txt.Text,
                     email = email_txt.Text
                 };
-                db.readers.Add(readerObject);
-                db.SaveChanges();
-                LoadGrid();
-                MessageBox.Show("Pomyślnie dodano nowego czytelnika!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+                if(readerObject.name == String.Empty)
+                    MessageBox.Show("Dane są nieprawidłowe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                {
+                    db.readers.Add(readerObject);
+                    db.SaveChanges();
+                    LoadGrid();
+                    MessageBox.Show("Pomyślnie dodano nowego czytelnika!", "Zapisano", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+               
             }
             catch
             {

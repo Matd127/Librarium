@@ -64,7 +64,6 @@ namespace Librarium
 
             RentalsGrid.ItemsSource = rentalsList.ToList();
         }
-
         public void ClearAll()
         {
             bookId_txt.Clear();
@@ -86,26 +85,33 @@ namespace Librarium
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            rentals rentalObject = new rentals()
+            try
             {
-                readerId = int.Parse(readerId_txt.Text),
-                bookId = int.Parse(bookId_txt.Text),
-                date_of_rent = DateTime.Parse(dateOfRent_txt.Text),
-                date_of_return = DateTime.Parse(dateOfReturn_txt.Text)
-            };
-            var CheckFine = (from f in db.fines
-                             where f.readerId == rentalObject.readerId 
-                             && f.isPaid_ == false
-                             select f).Count();
-            
-            if(CheckFine > 0)
-                MessageBox.Show("Nie można wypożyczyć książki. Czytelnik posiada nieopłaconą karę.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
+                rentals rentalObject = new rentals()
+                {
+                    readerId = int.Parse(readerId_txt.Text),
+                    bookId = int.Parse(bookId_txt.Text),
+                    date_of_rent = DateTime.Parse(dateOfRent_txt.Text),
+                    date_of_return = DateTime.Parse(dateOfReturn_txt.Text)
+                };
+                var CheckFine = (from f in db.fines
+                                 where f.readerId == rentalObject.readerId
+                                 && f.isPaid_ == false
+                                 select f).Count();
+
+                if (CheckFine > 0)
+                    MessageBox.Show("Nie można wypożyczyć książki. Czytelnik posiada nieopłaconą karę.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                {
+                    db.rentals.Add(rentalObject);
+                    db.SaveChanges();
+                    LoadRentalsGrid();
+                    MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch
             {
-                db.rentals.Add(rentalObject);
-                db.SaveChanges();
-                LoadRentalsGrid();
-                MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Dane są nieprawidłowe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
