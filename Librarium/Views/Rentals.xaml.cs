@@ -94,19 +94,26 @@ namespace Librarium
                     date_of_rent = DateTime.Parse(dateOfRent_txt.Text),
                     date_of_return = DateTime.Parse(dateOfReturn_txt.Text)
                 };
+
                 var CheckFine = (from f in db.fines
                                  where f.readerId == rentalObject.readerId
                                  && f.isPaid_ == false
                                  select f).Count();
 
                 if (CheckFine > 0)
-                    MessageBox.Show("Nie można wypożyczyć książki. Czytelnik posiada nieopłaconą karę.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Nie można wypożyczyć książki. Czytelnik posiada nieopłaconą karę.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
                 {
-                    db.rentals.Add(rentalObject);
-                    db.SaveChanges();
-                    LoadRentalsGrid();
-                    MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (rentalObject.date_of_rent > rentalObject.date_of_return)
+                        MessageBox.Show("Data wypożyczenia nie może być późniejsza niż zwrotu.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                    {
+                        db.rentals.Add(rentalObject);
+                        db.SaveChanges();
+                        LoadRentalsGrid();
+                        MessageBox.Show("Książka wypożyczona!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
                 }
             }
             catch
@@ -132,8 +139,12 @@ namespace Librarium
                 obj.readerId = int.Parse(bookId_txt.Text);
                 obj.date_of_rent = DateTime.Parse(dateOfRent_txt.Text);
                 obj.date_of_return = DateTime.Parse(dateOfReturn_txt.Text);
+
+                if (obj.date_of_rent > obj.date_of_return)
+                    MessageBox.Show("Data wypożyczenia nie może być późniejsza niż zwrotu.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                    db.SaveChanges();
             }
-            db.SaveChanges();
             ClearAll();
             MessageBox.Show("Pomyślnie zaaktualizowano!", "Gotowe", MessageBoxButton.OK, MessageBoxImage.Information);
             LoadRentalsGrid();

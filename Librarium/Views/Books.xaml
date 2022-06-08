@@ -10,7 +10,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
         <Button Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="200" Margin="44,424,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Add_Click"/>
         <Label Content="ID książki" Margin="26,363,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="18" Foreground="LightGray" FontWeight="Bold" Grid.Column="1" Width="94"/>
         <TextBox IsReadOnly="True" x:Name="search_txt" Text="" TextWrapping="Wrap" Margin="26,400,299,0" Background="#FF424242" Foreground="#BFD3D3D3" FontFamily="Calibri" TextAlignment="Left" VerticalAlignment="Top" FontSize="36" Height="49" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF424242" BorderThickness="1,1,1,1" Grid.Column="1" />
-        <Button Content="Edytuj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="188" Margin="26,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="Update_Click"/>
+        <Button Content="Aktualizuj" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="188" Margin="26,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="Update_Click"/>
         <Button Content="Usuń" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="187" Margin="250,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="Delete_Click"/>
         <Button Content="Powrót do menu" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="161" Margin="44,20,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Click="Back_Click"/>
         <Button Content="Wyczyść" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="187" Margin="475,466,0,0" FontSize="18" Foreground="#FFF2F8F4" Background="#FF22A86D" BorderBrush="#FF229D6D" FontFamily="Calibri" Grid.Column="1" Click="ClearBtn_Click"/>
